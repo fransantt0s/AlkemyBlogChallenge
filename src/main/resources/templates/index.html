@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="layout/pagina :: head">
+        <title>Home</title>
+    </head>
+    <body>
+
+        <header th:replace="layout/pagina :: header"></header>
+        <section th:replace="layout/botonAgregar :: botonAgregar"></section>
+        <section th:replace="layout/agregarPost :: agregarPost"></section>
+        <section th:replace="layout/listaPost :: listaPost"></section>
+        <footer th:replace="layout/pagina :: footer"></footer>
+    </body>
+</html>

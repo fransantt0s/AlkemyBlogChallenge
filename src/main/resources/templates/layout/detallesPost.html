@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalles del post</title>
+</head>
+<body>
+    <section th:fragment="detallesPost">
+        <div class="container mt-5">
+            <div th:object="${post}">
+                <div class="row justify-content-center">
+                    <div class="card m-1 p-1" style="width: 100%;height:100%">
+                        <div class="row">
+                            <div class=" col-md-7">
+                                <img class="float-left ml-1" th:src="@{'/uploads/' + ${post.imagen}}"
+                                     th:alt="${post.imagen}" style="max-width:90%;max-height: 100%"/>
+                            </div>
+                            <div class="col-md-5 mt-3">
+                                <h3 th:text="${post.titulo}"></h3>
+                                <h7 th:text="${post.contenido}"></h7>
+                                <h7 th:text="${post.categoria}"></h7>
+                                <h7 th:text="${#dates.format(post.fechaCreacion, 'dd-MM-yyyy HH:mm:ss')}"> </h7>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>

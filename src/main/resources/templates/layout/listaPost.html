@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Posts</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <section th:fragment="listaPost" id="listaPost">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4>[[#{post.lista}]]</h4>
+                            </div>
+                            <div th:if="${posts != null and !posts.empty}">
+                                <table class="table table-stryped">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th>#</th>
+                                            <th th:text="#{titulo}">Titulo</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="post, countPosts : ${posts}">
+                                            <td>[[${countPosts.count}]]</td>
+                                            <td> [[${post.titulo}]]</td>
+
+                                            <td>
+                                                <a th:href="@{/edit/} + ${post.id}"
+                                                   class="btn btn-secondary">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{editar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{/delete(id=${post.id})}"
+                                                   class="btn btn-dark">
+                                                    <i class="fas fa-angle-double-right"></i> [[#{borrar}]]
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <a th:href="@{/detalles(id=${post.id})}"
+                                                   class="btn btn dark">
+                                                    <i class="fas fa-asterisk"></i> [[#{detalles}]]
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="text-center p-2" th:if="${posts == null or posts.empty}">
+                                <span th:text="#{post.lista-vacia}">La lista de posts Esta vacia</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
