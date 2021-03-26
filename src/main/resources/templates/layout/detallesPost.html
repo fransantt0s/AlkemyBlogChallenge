@@ -18,9 +18,12 @@
                             </div>
                             <div class="col-md-5 mt-3">
                                 <h3 th:text="${post.titulo}"></h3>
-                                <h7 th:text="${post.contenido}"></h7>
-                                <h7 th:text="${post.categoria}"></h7>
-                                <h7 th:text="${#dates.format(post.fechaCreacion, 'dd-MM-yyyy HH:mm:ss')}"> </h7>
+                                <br>
+                                <h4 th:text="${post.contenido}"></h4>
+                                <br>
+                                <h4 th:text="${post.categoria}"></h4>
+                                <br>
+                                <h4 th:text="${#dates.format(post.fechaCreacion, 'dd-MM-yyyy HH:mm:ss')}"> </h4>
                             </div>
                         </div>
                     </div>
