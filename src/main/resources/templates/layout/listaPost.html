@@ -19,12 +19,14 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th>#</th>
+                                            <th>id</th>
                                             <th th:text="#{titulo}">Titulo</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr th:each="post, countPosts : ${posts}">
                                             <td>[[${countPosts.count}]]</td>
+                                            <td> [[${post.id}]]</td>
                                             <td> [[${post.titulo}]]</td>
 
                                             <td>
