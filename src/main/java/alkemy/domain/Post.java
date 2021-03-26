@@ -16,7 +16,6 @@ import java.util.Date;
 @Entity
 @Table(name="post")
 @SQLDelete(sql="UPDATE post SET deleted=1 WHERE id = ?")
-@Where(clause = "deleted != 1")
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
