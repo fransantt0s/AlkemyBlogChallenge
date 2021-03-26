@@ -3,6 +3,8 @@ package alkemy.domain;
 
 
 import jdk.jfr.DataAmount;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.Where;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
@@ -13,29 +15,32 @@ import java.util.Date;
 
 @Entity
 @Table(name="post")
+@SQLDelete(sql="UPDATE post SET deleted=1 WHERE id = ?")
+@Where(clause = "deleted = 0")
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-
     private String titulo;
-
     private String contenido;
+    private String imagen;
+    private String categoria;
+    private Byte deleted;
+
+
 
     public String getContenido() {
         return contenido;
     }
 
+
     public void setContenido(String contenido) {
         this.contenido = contenido;
     }
 
-    private String imagen;
 
-    private String categoria;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date fechaCreacion;
