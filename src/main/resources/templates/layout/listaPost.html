@@ -34,13 +34,13 @@
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/delete(id=${post.id})}"
+                                                <a th:href="@{/delete/} + ${post.id}"
                                                    class="btn btn-dark">
                                                     <i class="fas fa-angle-double-right"></i> [[#{borrar}]]
                                                 </a>
                                             </td>
                                             <td>
-                                                <a th:href="@{/detalles(id=${post.id})}"
+                                                <a th:href="@{/detalles/} + ${post.id}"
                                                    class="btn btn dark">
                                                     <i class="fas fa-asterisk"></i> [[#{detalles}]]
                                                 </a>

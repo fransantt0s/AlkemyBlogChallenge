@@ -10,6 +10,9 @@ public interface PostService{
     public void guardarPost(Post post);
     public void borrarPost(Post post);
     public Post encontrarPost(Post post);
+    public void actualizarTitulo(Long id , String titulo);
+    public void actualizarCategoria (Long id, String categoria);
+    public void actualizarContenido (Long id,String contenido);
 
 
 }

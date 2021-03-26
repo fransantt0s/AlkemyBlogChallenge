@@ -64,7 +64,7 @@ public class HomeController {
         return "editar";
     }
 
-    @GetMapping("/detalles")
+    @GetMapping("/detalles/{id}")
     public String verDetalles (Post post , Model model){
         post = postService.encontrarPost(post);
         model.addAttribute("post",post);
@@ -72,12 +72,35 @@ public class HomeController {
     }
 
 
-    @GetMapping("/delete")
+    @GetMapping("/delete/{id}")
     public String deletePost(Post post){
         post = postService.encontrarPost(post);
         postService.borrarPost(post);
         return "redirect:/";
     }
+
+    @PatchMapping("/upgrade/{id}/{titulo}")
+    public String actualizarTituloPost(Post post,String titulo){
+        post = postService.encontrarPost(post);
+        postService.actualizarTitulo(post.getId(),titulo);
+        return "redirect:/";
+    }
+
+    @PatchMapping("/upgrade/{id}/{categoria}")
+    public String actualizarCategoriaPost(Post post,String categoria){
+        post = postService.encontrarPost(post);
+        postService.actualizarCategoria(post.getId(),categoria);
+        return "redirect:/";
+    }
+
+    @PatchMapping ("/upgrade/{id}/{contenido}")
+    public String actualizarContenidoPost(Post post , String contenido){
+        post = postService.encontrarPost(post);
+        postService.actualizarContenido(post.getId(),contenido);
+        return "redirect:/";
+    }
+
+
 
 
 
