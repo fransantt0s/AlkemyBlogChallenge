@@ -16,6 +16,7 @@ import java.util.Date;
 @Entity
 @Table(name="post")
 @SQLDelete(sql="UPDATE post SET deleted=1 WHERE id = ?")
+@Where(clause = "deleted = 0")
 public class Post implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -26,9 +27,18 @@ public class Post implements Serializable {
     private String contenido;
     private String imagen;
     private String categoria;
-    private Byte deleted;
+
+    @Column(name="deleted", columnDefinition = "TINYINT DEFAULT '0' ")
+    private Long deleted;
 
 
+    public Long getDeleted() {
+        return deleted;
+    }
+
+    public void setDeleted(Long deleted) {
+        this.deleted = deleted;
+    }
 
     public String getContenido() {
         return contenido;

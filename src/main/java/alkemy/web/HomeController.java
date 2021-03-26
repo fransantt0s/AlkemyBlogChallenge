@@ -50,6 +50,7 @@ public class HomeController {
             } catch (Exception e) {
 
             }
+            post.setDeleted(0L);
             postService.guardarPost(post);
             flash.addFlashAttribute("success", "Foto subida!!");
         }
